@@ -9,6 +9,7 @@ export default function NaszApp() {
 
     return (
         <div>
+            <h2>App1</h2>
             <button onClick={bigger}>przycisk</button>
             <h3>
                 numer: <span>{liczba}</span>
