@@ -1,56 +1,34 @@
-// import App from "./App.jsx";
-// import App2 from "./App2.jsx";
-// import App3 from "./App3.jsx";
-// import "./Layout.css";
-//
-// export default function Layout() {
-//
-//     return (
-//         <div className="main">
-//             <div className="card1">
-//                 <h2>Lewo (App1)</h2>
-//                 <App />
-//             </div>
-//             <div className="card1">
-//                 <h2>Środek (App2)</h2>
-//                 <App2 />
-//             </div>
-//             <div className="card2">
-//                 <h2>Prawo (App3)</h2>
-//                 <App3 />
-//             </div>
-//         </div>
-//     );
-// }
-
 import {Typography, Paper, Box, ListItemText, ListItemButton, ListItem, List, Drawer, Toolbar, AppBar} from '@mui/material';
-export default function Layout() {
+import {Routes, Route} from "react-router-dom";
+
+
+import TopBar from "./components/TopBar.jsx";
+import SideBar from "./components/SideBar.jsx";
+import ChatPage from "./pages/ChatPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import SettingPage from "./pages/SettingPage.jsx";
+
+ export default function Layout() {
+
+
     return (
         <Box sx={{display:"flex", minHeight:"100vh"}}>
-            <AppBar position="fixed">
-                <Toolbar>
-                    <Typography variant="h6">ToolBar</Typography>
-                </Toolbar>
-            </AppBar>
 
-            <Drawer variant="permanent" sx={{width:"300", [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+
+            <TopBar/>
+            <Box component="main" sx={{flexGrow:1, p:2}}>
                 <Toolbar/>
-                <Box>
-                    <Typography>
-                        Tekst
-                    </Typography>
-                    <List>
-                        <ListItem>
-                            <ListItemButton>
-                                <ListItemText primary="tekst"/>
-                            </ListItemButton>
-                        </ListItem>
+                {/*<Paper sx={{p:2,minHeight:400}}>*/}
+                {/*    <Typography variant="h6">tEKST</Typography>*/}
+                {/*    <Typography variant="body1" sx={{mt:1}}>dłuższy Tekst</Typography>*/}
+                {/*</Paper>*/}
 
-                    </List>
-                </Box>
-
-
-            </Drawer>
+                <Routes>
+                    <Route path="/"  element={<ChatPage/>} />
+                    <Route path="/login" element={<LoginPage/>} />
+                    <Route path="/settings" element={<SettingPage/>} />
+                </Routes>
+            </Box>
         </Box>
     );
 }
