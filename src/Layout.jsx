@@ -16,6 +16,7 @@ import SettingPage from "./pages/SettingPage.jsx";
 
 
             <TopBar/>
+            <SideBar/>
             <Box component="main" sx={{flexGrow:1, p:2}}>
                 <Toolbar/>
                 {/*<Paper sx={{p:2,minHeight:400}}>*/}

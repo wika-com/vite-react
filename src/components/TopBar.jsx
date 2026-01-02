@@ -7,10 +7,10 @@ export default function topBar() {
         <AppBar position="fixed" sx={{zIndex:(theme) => theme.zIndex.drawer+1 }}>
             <Toolbar>
                 <Typography variant="h6">ToolBar</Typography>
-                <Box sx={{ml:2, display:"flex", gap:2}}>
-                    <button component={Link} to="/">Chat</button>
-                    <button component={Link} to ="/login">Login</button>
-                    <button component={Link} to ="/setting">Settings</button>
+                <Box sx={{ml:2, display:"flex", gap:1}}>
+                    <Button color="inherit" component={Link} to="/">Chat</Button>
+                    <Button color="inherit" component={Link} to ="/login">Login</Button>
+                    <Button color="inherit" component={Link} to ="/settings">Settings</Button>
                 </Box>
                 <Box sx={{flexGrow:1}}>
                     <Typography>Użytkownik: brak</Typography>
