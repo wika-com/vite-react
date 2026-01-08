@@ -1,0 +1,22 @@
+#block {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  background-color: #98B6B1;
+  color: #CCCCCC;
+  #box {
+    display: inline-block;
+    margin: auto;
+    #text {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3vh;
+    }
+    #button {
+      background-color: #77A68A;
+    }
+  }
+
+}

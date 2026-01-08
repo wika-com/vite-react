@@ -1,0 +1,26 @@
+#box {
+  color: white;
+  #sideblock {
+    background-color: #D7BCC8;
+    padding-bottom: 15vh;
+    color: white;
+    #stack{
+      display: flex;
+      margin-left: 10px;
+      margin-top: 5px;
+      flex-direction: row;
+      align-content: space-between;
+      #contacts {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 4vh;
+      }
+      #icon {
+        display: inline-block;
+        margin-left: 10vh;
+        color: white;
+
+      }
+    }
+  }
+}

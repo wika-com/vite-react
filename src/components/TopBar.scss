@@ -1,0 +1,22 @@
+#bar{
+  background-color: #77A68A;
+  display: flex;
+  #name {
+    font-family: "Malgun Gothic Semilight";
+    font-size: 3vh;
+  }
+  #box{
+    background-color: #77A68A;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 0;
+    #user{
+      display: inline-block;
+    }
+    #button{
+      width: 1%;
+      display: inline-block;
+    }
+  }
+}
