@@ -20,11 +20,13 @@ export default function ChatPage(){
             <Typography variant="h3">Rozmowa: {data.selectContact}</Typography>
 
             <List>
+
                 <ListItem>
                     <ListItemText>
 
                     </ListItemText>
                 </ListItem>
+
             </List>
             <Paper id="textfield">
                 <TextField id="message" label="Hi!" variant="standard" />

@@ -1,0 +1,27 @@
+#box {
+  color: white;
+}
+#box #sideblock {
+  background-color: #D7BCC8;
+  padding-bottom: 15vh;
+  color: white;
+}
+#box #sideblock #stack {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 5px;
+  flex-direction: row;
+  align-content: space-between;
+}
+#box #sideblock #stack #contacts {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 4vh;
+}
+#box #sideblock #stack #icon {
+  display: inline-block;
+  margin-left: 10vh;
+  color: white;
+}
+
+/*# sourceMappingURL=SideBar.css.map */

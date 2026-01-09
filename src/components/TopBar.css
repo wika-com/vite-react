@@ -1,0 +1,24 @@
+#bar {
+  background-color: #77A68A;
+  display: flex;
+}
+#bar #name {
+  font-family: "Malgun Gothic Semilight";
+  font-size: 3vh;
+}
+#bar #box {
+  background-color: #77A68A;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 0;
+}
+#bar #box #user {
+  display: inline-block;
+}
+#bar #box #button {
+  width: 1%;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=TopBar.css.map */

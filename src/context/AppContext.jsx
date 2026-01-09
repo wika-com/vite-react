@@ -1,14 +1,20 @@
-import React,  {createContext, useState} from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import React,  {createContext, useState, useEffect} from "react";
+import { toast } from 'react-toastify';
 // import {dark} from "@mui/material/styles/createPalette.d.ts";
 
 export const AppContext = createContext(null);
 
 export function AppProvider({children}) {
+    const LS_USER_KEY= "ChatUsername"
+
     const [showTime,setShowTime] = useState(true);
-    const [userName,setUserName] = useState("");
+    const [userName,setUserName] = useState(localStorage.getItem(LS_USER_KEY) || "");
     const [selectContact,setSelectContact] = useState("Ala");
     const [darkTheme,setDarkTheme] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem(LS_USER_KEY,userName)
+    }, []);
 
     function login(name) {
         const nameClean = (name || "").trim();

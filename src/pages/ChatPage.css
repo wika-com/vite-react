@@ -1,0 +1,10 @@
+#card {
+  background-color: #CCCCCC;
+  min-height: 80%;
+  margin-bottom: 0;
+}
+#card #message {
+  width: max-content;
+}
+
+/*# sourceMappingURL=ChatPage.css.map */

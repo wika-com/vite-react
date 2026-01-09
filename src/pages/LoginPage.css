@@ -1,0 +1,23 @@
+#block {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  background-color: #98B6B1;
+  color: #CCCCCC;
+}
+#block #box {
+  display: inline-block;
+  margin: auto;
+}
+#block #box #text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3vh;
+}
+#block #box #button {
+  background-color: #77A68A;
+}
+
+/*# sourceMappingURL=LoginPage.css.map */
