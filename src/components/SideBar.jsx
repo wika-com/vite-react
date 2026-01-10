@@ -20,7 +20,7 @@ export default function SideBar() {
     const data=useContext(AppContext);
     const names=["Ala","Ola","ELA","Kasia","Basia"];
     return(
-        <Drawer id="box" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+        <Drawer className="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
             <Toolbar/>
             <Box id="sideblock">
                 <Stack id="stack">

@@ -1,24 +1,29 @@
-#box {
+body.dark .sidebar .MuiDrawer-paper {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.sidebar {
   color: white;
 }
-#box #sideblock {
+.sidebar .MuiDrawer-paper {
   background-color: #D7BCC8;
   padding-bottom: 15vh;
   color: white;
 }
-#box #sideblock #stack {
+.sidebar .MuiDrawer-paper #stack {
   display: flex;
   margin-left: 10px;
   margin-top: 5px;
   flex-direction: row;
   align-content: space-between;
 }
-#box #sideblock #stack #contacts {
+.sidebar .MuiDrawer-paper #stack #contacts {
   display: inline-block;
   font-weight: bold;
   font-size: 4vh;
 }
-#box #sideblock #stack #icon {
+.sidebar .MuiDrawer-paper #stack #icon {
   display: inline-block;
   margin-left: 10vh;
   color: white;

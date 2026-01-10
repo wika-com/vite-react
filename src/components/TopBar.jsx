@@ -15,15 +15,16 @@ export default function TopBar() {
     }
 
     return (
-        <AppBar id="bar" position="fixed" sx={{zIndex:(theme) => theme.zIndex.drawer+1 }}>
-            <Toolbar>
+        <AppBar className="topbar" position="fixed" sx={{zIndex:(theme) => theme.zIndex.drawer+1, backgroundColor: "#77A68A"}}>
+            <Toolbar className="toolbar">
                 <Typography id="name" variant="h6">BlablaChat</Typography>
-                <Box sx={{ml:2, display:"flex", gap:1}}>
+                <Box sx={{ml:2, display:"flex", gap:1, flexGrow:1}}>
+                    {/*ml=margin-left*/}
                     <Button color="inherit" component={Link} to="/chat">Chat</Button>
                     <Button color="inherit" component={Link} to ="/settings">Settings</Button>
                     <Button color="inherit" component={Link} to ="/login">Login</Button>
                 </Box>
-                <Box id="box" sx={{flexGrow:1}}>
+                <Box className="box">
                     <Typography id="user" variant="body2">Użytkownik: {data.userName}</Typography>
                     <Button id="button" color="inherit" onClick={logSystem}>Wyloguj</Button>
                 </Box>

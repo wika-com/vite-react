@@ -1,6 +1,15 @@
-#box {
+// {
+//  background: #ffffff;
+//  color: #222;
+//}
+
+body.dark .sidebar .MuiDrawer-paper{
+  background: #1e1e1e;
+  color: #fff;
+}
+.sidebar {
   color: white;
-  #sideblock {
+  .MuiDrawer-paper {
     background-color: #D7BCC8;
     padding-bottom: 15vh;
     color: white;

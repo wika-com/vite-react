@@ -1,17 +1,41 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import Layout from "./Layout.jsx";
 import {BrowserRouter} from "react-router-dom";
-import {AppProvider} from "./context/AppContext.jsx";
+import {AppProvider, AppContext} from "./context/AppContext.jsx";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
+
+
+function ThemedApp() {
+    const { darkTheme } = useContext(AppContext);
+    useEffect(() => {
+        document.body.classList.toggle("dark", darkTheme);
+    }, [darkTheme]);
+
+    const theme = createTheme({
+        palette: {
+            mode: darkTheme ? "dark" : "light",
+        },
+    });
+
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ToastContainer position="bottom-right" autoClose={2000} reverseOrder={false} />
+            <Layout />
+        </ThemeProvider>
+    );
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <BrowserRouter>
             <AppProvider>
-                <ToastContainer position="top-right" autoClose={3000} />
-                <Layout/>
+                <ThemedApp/>
+                {/*<ToastContainer position="top-right" autoClose={3000} />*/}
+                {/*<Layout/>*/}
             </AppProvider>
         </BrowserRouter>
     </React.StrictMode>

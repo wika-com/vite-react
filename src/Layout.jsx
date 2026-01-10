@@ -13,7 +13,6 @@ import SettingPage from "./pages/SettingPage.jsx";
  export default function Layout() {
    const data = useContext(AppContext);
 
-
     function requireLogin(el) {
         if(!data.userName){
             return <Navigate to="/login" replace/>
@@ -26,7 +25,6 @@ import SettingPage from "./pages/SettingPage.jsx";
             <TopBar/>
 
             {data.userName ? <SideBar/> : null}
-
 
             <Box component="main" sx={{flexGrow:1, p:2}}>
                 <Toolbar/>

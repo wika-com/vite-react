@@ -28,8 +28,8 @@ export function AppProvider({children}) {
     }
 
     function darkside() {
+        setDarkTheme(!darkTheme);
         if (!darkTheme) {
-            setDarkTheme(!darkTheme);
             toast('Witamy po ciemnej stronie mocy...',
                 {
                     style: {
@@ -39,11 +39,7 @@ export function AppProvider({children}) {
                     },
                 }
             );
-        } else {
-            setDarkTheme(!darkTheme);
-
         }
-
     }
 
     function logout() {

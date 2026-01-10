@@ -1,23 +1,26 @@
-#bar {
+body.dark .topbar.MuiAppBar-root {
+  background-color: #181818;
+}
+
+.topbar .MuiAppBar-root .toolbar {
   background-color: #77A68A;
   display: flex;
+  justify-content: space-between;
 }
-#bar #name {
-  font-family: "Malgun Gothic Semilight";
+.topbar .MuiAppBar-root .toolbar #name {
+  font-family: "Malgun Gothic Semilight", fangsong;
   font-size: 3vh;
 }
-#bar #box {
-  background-color: #77A68A;
+.topbar .MuiAppBar-root .toolbar .box {
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
-  margin-left: 0;
+  align-items: center;
 }
-#bar #box #user {
+.topbar .MuiAppBar-root .toolbar .box #user {
   display: inline-block;
 }
-#bar #box #button {
-  width: 1%;
+.topbar .MuiAppBar-root .toolbar .box #button {
+  width: auto;
   display: inline-block;
 }
 
