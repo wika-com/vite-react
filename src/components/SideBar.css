@@ -1,6 +1,12 @@
 body.dark .sidebar .MuiDrawer-paper {
-  background: #1e1e1e;
+  background: #2c2337;
   color: #fff;
+}
+body.dark .sidebar .MuiDrawer-paper #one:nth-child(even) {
+  background-color: #3d314a;
+}
+body.dark .sidebar .MuiDrawer-paper #usun #minus {
+  color: #1a1423;
 }
 
 .sidebar {
@@ -10,22 +16,40 @@ body.dark .sidebar .MuiDrawer-paper {
   background-color: #D7BCC8;
   padding-bottom: 15vh;
   color: white;
+  font-family: Calibri, emoji;
 }
-.sidebar .MuiDrawer-paper #stack {
+.sidebar .MuiDrawer-paper .stack {
   display: flex;
   margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 8px;
   flex-direction: row;
   align-content: space-between;
+  align-items: center;
 }
-.sidebar .MuiDrawer-paper #stack #contacts {
+.sidebar .MuiDrawer-paper .stack .button {
+  display: inline-block;
+  color: white;
+  height: 5vh;
+}
+.sidebar .MuiDrawer-paper .stack .button .icon {
+  height: 5vh;
+  margin: auto;
+}
+.sidebar .MuiDrawer-paper .dodaj {
+  margin: 2vh;
+  color: white;
+}
+.sidebar .MuiDrawer-paper .contacts {
   display: inline-block;
   font-weight: bold;
   font-size: 4vh;
+  margin: 5% auto auto;
+  outline: 3px solid white;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  border-radius: 10vh;
 }
-.sidebar .MuiDrawer-paper #stack #icon {
-  display: inline-block;
-  margin-left: 10vh;
+.sidebar .MuiDrawer-paper #usun {
   color: white;
 }
 

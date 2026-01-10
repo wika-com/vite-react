@@ -1,11 +1,13 @@
-// {
-//  background: #ffffff;
-//  color: #222;
-//}
 
 body.dark .sidebar .MuiDrawer-paper{
-  background: #1e1e1e;
+  background: #2c2337;
   color: #fff;
+  #one:nth-child(even){
+    background-color: #3d314a;
+  }
+  #usun #minus{
+    color: #1a1423;
+  }
 }
 .sidebar {
   color: white;
@@ -13,23 +15,40 @@ body.dark .sidebar .MuiDrawer-paper{
     background-color: #D7BCC8;
     padding-bottom: 15vh;
     color: white;
-    #stack{
+    font-family: Calibri, emoji;
+    .stack{
       display: flex;
       margin-left: 10px;
-      margin-top: 5px;
+      margin-top: 8px;
       flex-direction: row;
       align-content: space-between;
-      #contacts {
+      align-items: center;
+      .button{
         display: inline-block;
-        font-weight: bold;
-        font-size: 4vh;
-      }
-      #icon {
-        display: inline-block;
-        margin-left: 10vh;
         color: white;
-
+        height: 5vh;
+        .icon{
+          height: 5vh;
+          margin: auto;
+        }
       }
     }
+    .dodaj {
+      margin: 2vh;
+      color: white;
+    }
+  .contacts {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 4vh;
+    margin: 5% auto auto;
+    outline: 3px solid white;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    border-radius: 10vh;
+  }
+  #usun{
+    color: white;
+  }
   }
 }

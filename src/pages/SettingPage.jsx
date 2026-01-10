@@ -1,6 +1,7 @@
-import {Typography, Paper, FormControlLabel, Switch} from '@mui/material';
+import {Typography, Paper, FormControlLabel, Switch, Stack} from '@mui/material';
 import {useContext} from "react";
 import {AppContext} from "../context/AppContext.jsx";
+import "./SettingPage.css";
 
 export default function ChatPage(){
 
@@ -9,8 +10,11 @@ export default function ChatPage(){
     return (
         <Paper id="card" sx={{p:2,minHeight:400}}>
             <Typography variant="h3">Settings</Typography>
-            <FormControlLabel control={<Switch checked={data.showTime} onChange={() => data.setShowTime(!data.showTime)} /> } label="Pokaż/Ukryj godzinę wiadomości" />
-            <FormControlLabel control={<Switch checked={data.darkTheme} onChange={data.darkside}/>} label="Motyw ciemny/jasny" />
+            <Stack>
+                <FormControlLabel control={<Switch checked={data.showTime} onChange={() => data.setShowTime(!data.showTime)} /> } label="Pokaż/Ukryj godzinę wiadomości" />
+                <FormControlLabel control={<Switch checked={data.darkTheme} onChange={data.darkside}/>} label="Motyw ciemny/jasny" />
+            </Stack>
+
         </Paper>
     );
 }

@@ -1,9 +1,10 @@
 //.topbar  {
 //  background: #eeeeee;
 //}
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
 
 body.dark .topbar.MuiAppBar-root{
-  background-color: #181818;
+  background-color: #231c2d;
 }
 
 .topbar .MuiAppBar-root{
@@ -12,8 +13,21 @@ body.dark .topbar.MuiAppBar-root{
     display: flex;
     justify-content: space-between;
     #name {
-      font-family: "Malgun Gothic Semilight", fangsong;
-      font-size: 3vh;
+      font-family: "DM Serif Text", monospace;
+      font-size: 4vh;
+      //font-family: "DM Serif Text", serif;
+      //font-weight: 400;
+      //font-style: normal;
+      //.dm-serif-text-regular {
+      //  font-family: "DM Serif Text", serif;
+      //  font-weight: 400;
+      //  font-style: normal;
+      //}
+      //.dm-serif-text-regular-italic {
+      //  font-family: "DM Serif Text", serif;
+      //  font-weight: 400;
+      //  font-style: italic;
+      //}
     }
     .box{
       display: flex;

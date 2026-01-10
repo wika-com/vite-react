@@ -1,3 +1,8 @@
+body.dark #block.MuiPaper-root{
+  background: #3d314a;
+  color: #fff;
+}
+
 #block {
   min-height: 80vh;
   display: flex;
@@ -5,7 +10,7 @@
   align-content: center;
   margin: auto;
   background-color: #F5EBE0;
-  color: white;
+  color: #4A5759;
   #box {
     display: inline-block;
     margin: auto;

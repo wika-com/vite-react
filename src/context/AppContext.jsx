@@ -16,6 +16,12 @@ export function AppProvider({children}) {
         localStorage.setItem(LS_USER_KEY,userName)
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem(LS_USER_KEY,userName)
+        // >>> ZMIANA: efekt ma działać po zmianie userName (a nie tylko raz)
+    }, [userName]);
+    // <<< ZMIANA
+
     function login(name) {
         const nameClean = (name || "").trim();
         if (!nameClean) {
