@@ -6,7 +6,7 @@ body.dark .sidebar .MuiDrawer-paper #one:nth-child(even) {
   background-color: #3d314a;
 }
 body.dark .sidebar .MuiDrawer-paper #usun #minus {
-  color: #1a1423;
+  color: #77A68A;
 }
 
 .sidebar {
@@ -30,9 +30,10 @@ body.dark .sidebar .MuiDrawer-paper #usun #minus {
   display: inline-block;
   color: white;
   height: 5vh;
+  margin-top: 2vh;
+  border-radius: 40px;
 }
 .sidebar .MuiDrawer-paper .stack .button .icon {
-  height: 5vh;
   margin: auto;
 }
 .sidebar .MuiDrawer-paper .dodaj {
@@ -51,6 +52,8 @@ body.dark .sidebar .MuiDrawer-paper #usun #minus {
 }
 .sidebar .MuiDrawer-paper #usun {
   color: white;
+  height: 8vh;
+  border-radius: 50px;
 }
 
 /*# sourceMappingURL=SideBar.css.map */

@@ -8,6 +8,30 @@ body.dark #card.MuiPaper-root {
   min-height: 80vh;
   margin-bottom: 0;
   color: #4A5759;
-  #message {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: flex-end;
+  #textfield {
+    display: flex;
+    padding-left: 2vh;
+    padding-bottom: 2vh;
+    margin-top: auto;
+    #message{
+      width: 90%;
+      flex: 1;
+      overflow-y: auto;
+    }
+    #button{
+      align-self: center;
+      margin-top: 2vh;
+      border-radius: 40px;
+    }
+    .icon{
+      margin: auto;
+      color: #77A68A;
+
+    }
+
   }
 }

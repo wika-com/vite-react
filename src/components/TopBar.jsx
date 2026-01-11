@@ -25,9 +25,10 @@ export default function TopBar() {
                     <Button color="inherit" component={Link} to ="/login">Login</Button>
                 </Box>
                 <Box className="box">
-                    <Typography id="user" variant="body2">Użytkownik: {data.userName}</Typography>
-                    <Button id="button" color="inherit" onClick={logSystem}>Wyloguj</Button>
+                    <Typography className="user" >Użytkownik: {data.userName}</Typography>
+                    <Typography className="status" variant="subtitle1">Status: {data.control}</Typography>
                 </Box>
+                <Button className="button" color="inherit" onClick={logSystem}>Wyloguj</Button>
             </Toolbar>
         </AppBar>
     )

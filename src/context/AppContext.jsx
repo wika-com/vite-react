@@ -11,6 +11,11 @@ export function AppProvider({children}) {
     const [userName,setUserName] = useState(localStorage.getItem(LS_USER_KEY) || "");
     const [selectContact,setSelectContact] = useState("Ala");
     const [darkTheme,setDarkTheme] = useState(false);
+    const [chatMap,setChatMap] = useState({});
+    // const [control,setControl] = useState(localStorage.setItem("availability") || "Nieaktywna/y");
+    const [control, setControl] = useState(
+        localStorage.getItem("availability") || "Nieaktywna/y"
+    );
 
     useEffect(() => {
         localStorage.setItem(LS_USER_KEY,userName)
@@ -18,9 +23,24 @@ export function AppProvider({children}) {
 
     useEffect(() => {
         localStorage.setItem(LS_USER_KEY,userName)
-        // >>> ZMIANA: efekt ma działać po zmianie userName (a nie tylko raz)
     }, [userName]);
-    // <<< ZMIANA
+
+    useEffect(() => {
+        localStorage.setItem("availability",control)
+    }, [control]);
+
+    function isAvailable(available) {
+        setControl(available)
+    }
+
+    function addMessage(contact, from, text){
+        setChatMap(prev => {
+            const key = contact;
+            const list = prev[key] || [];
+            return { ...prev, [key]: [...list, {from, text}] };
+        });
+    }
+
 
     function login(name) {
         const nameClean = (name || "").trim();
@@ -36,7 +56,7 @@ export function AppProvider({children}) {
     function darkside() {
         setDarkTheme(!darkTheme);
         if (!darkTheme) {
-            toast('Witamy po ciemnej stronie mocy...',
+            toast('Witamy na ciemnej stronie mocy...',
                 {
                     style: {
                         borderRadius: '10px',
@@ -57,8 +77,12 @@ export function AppProvider({children}) {
         userName,setUserName,
         selectContact,setSelectContact,
         darkTheme,setDarkTheme,
+        chatMap,setChatMap,
+        addMessage,
         login,logout,
-        darkside
+        darkside,
+        isAvailable,
+        control,setControl
     };
     return  <AppContext.Provider value={value} > {children} </AppContext.Provider>;
 }

@@ -6,7 +6,7 @@ body.dark .sidebar .MuiDrawer-paper{
     background-color: #3d314a;
   }
   #usun #minus{
-    color: #1a1423;
+    color: #77A68A;
   }
 }
 .sidebar {
@@ -27,8 +27,9 @@ body.dark .sidebar .MuiDrawer-paper{
         display: inline-block;
         color: white;
         height: 5vh;
+        margin-top: 2vh;
+        border-radius: 40px;
         .icon{
-          height: 5vh;
           margin: auto;
         }
       }
@@ -49,6 +50,8 @@ body.dark .sidebar .MuiDrawer-paper{
   }
   #usun{
     color: white;
+    height: 8vh;
+    border-radius: 50px;
   }
   }
 }

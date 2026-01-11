@@ -9,7 +9,7 @@ import {
     Typography,
     Button,
     Stack,
-    TextField
+    TextField, Fab
 } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
@@ -44,7 +44,7 @@ export default function SideBar() {
     }
 
     return(
-        <Drawer className="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+        <Drawer className="sidebar" variant="temporary" open={open} onClose={onclose} sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
             <Toolbar/>
             <Box className="sideblock">
                 <Stack>

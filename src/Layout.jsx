@@ -24,7 +24,8 @@ import SettingPage from "./pages/SettingPage.jsx";
         <Box sx={{display:"flex", minHeight:"100vh"}}>
             <TopBar/>
 
-            {data.userName ? <SideBar/> : null}
+            {/*{data.userName ? <SideBar/> : null}*/}
+            null
 
             <Box component="main" sx={{flexGrow:1, p:2}}>
                 <Toolbar/>

@@ -7,9 +7,12 @@ body.dark #card.MuiPaper-root {
   background-color: #F5EBE0;
   min-height: 80vh;
   margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#card.MuiPaper-root #control {
-  color: #D7BCC8;
+#card.MuiPaper-root #text {
+  margin-top: 10%;
 }
 
 /*# sourceMappingURL=SettingPage.css.map */

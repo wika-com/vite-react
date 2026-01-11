@@ -34,8 +34,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <BrowserRouter>
             <AppProvider>
                 <ThemedApp/>
-                {/*<ToastContainer position="top-right" autoClose={3000} />*/}
-                {/*<Layout/>*/}
             </AppProvider>
         </BrowserRouter>
     </React.StrictMode>
