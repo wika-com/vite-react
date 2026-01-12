@@ -10,8 +10,8 @@ export default function ChatPage(){
         data.isAvailable(event.target.value);
     }
     return (
-        <Paper id="card" sx={{p:2,minHeight:400}}>
-            <Typography variant="h3">Settings</Typography>
+        <Paper id="setcard" sx={{p:2,minHeight:400}}>
+            <Typography id="text1" variant="h2">Settings</Typography>
             <Stack>
                 <FormControlLabel control={<Switch checked={data.showTime} onChange={() => data.setShowTime(!data.showTime)} /> } label="Pokaż/Ukryj godzinę wiadomości" />
                 <FormControlLabel control={<Switch checked={data.darkTheme} onChange={data.darkside}/>} label="Motyw ciemny/jasny" />

@@ -6,6 +6,7 @@ import {AppProvider, AppContext} from "./context/AppContext.jsx";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 
 function ThemedApp() {
@@ -17,6 +18,9 @@ function ThemedApp() {
     const theme = createTheme({
         palette: {
             mode: darkTheme ? "dark" : "light",
+        },
+        typography: {
+            fontFamily: `"Roboto Slab", "Atma"`,
         },
     });
 

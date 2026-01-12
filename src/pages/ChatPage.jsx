@@ -28,10 +28,10 @@ export default function ChatPage(){
             data.addMessage(contact,"them",pickReply()); }, 2500);
     }
     return (
-        <Paper id="card" sx={{p:2,minHeight:400}}>
+        <Paper id="chat" sx={{p:2,minHeight:400, alignItems: "stretch"}}>
                 <Typography variant="h6">BlablaChat</Typography>
                 <Typography variant="h4">Rozmowa z {data.selectContact}</Typography>
-            <List> {
+            <List id="list"> {
                 messages.map((m,index) => (
                     <ListItem key={index}>
                         <ListItemText primary={m.from==="ja" ? data.userName : data.selectContact} secondary={m.text}/>

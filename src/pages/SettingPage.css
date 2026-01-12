@@ -1,17 +1,22 @@
-body.dark #card.MuiPaper-root {
+body.dark #setcard.MuiPaper-root {
   background-color: #3d314a;
   color: #fff;
 }
 
-#card.MuiPaper-root {
+#setcard.MuiPaper-root {
   background-color: #F5EBE0;
   min-height: 80vh;
   margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-#card.MuiPaper-root #text {
+#setcard.MuiPaper-root #text1 {
+  margin-bottom: 2%;
+  font-weight: bold;
+}
+#setcard.MuiPaper-root #text {
   margin-top: 10%;
 }
 
