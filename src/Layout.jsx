@@ -12,6 +12,7 @@ import SettingPage from "./pages/SettingPage.jsx";
 
  export default function Layout() {
    const data = useContext(AppContext);
+   const [drawerOpen, setDrawerOpen] = useState(false);
 
     function requireLogin(el) {
         if(!data.userName){
@@ -21,9 +22,9 @@ import SettingPage from "./pages/SettingPage.jsx";
     }
 
     return (
-        <Box sx={{display:"flex", minHeight:"100vh"}}>
-            <TopBar/>
+        <Box className="main" sx={{display:"flex", minHeight:"100vh"}}>
 
+            {data.userName ? <TopBa/> : null}
             {data.userName ? <SideBar/> : null}
 
             <Box component="main" sx={{flexGrow:1, p:2}}>

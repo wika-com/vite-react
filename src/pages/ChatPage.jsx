@@ -1,7 +1,8 @@
-import {Typography, Paper, ListItem, ListItemText, List, TextField, Button, Box} from '@mui/material';
+import {Typography, Paper, ListItem, IconButton, ListItemText, List, TextField, Button, Box} from '@mui/material';
 import {AppContext} from "../context/AppContext.jsx"
 import {useContext, useState} from "react";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import "./ChatPage.css";
 import { mess } from "./messages";
 
@@ -9,7 +10,12 @@ export default function ChatPage(){
     const data = useContext(AppContext);
     const [text,setText] = useState("");
     const messages = data.chatMap[data.selectContact] || [];
+    //const [drawerOpen, setDrawerOpen] = useState(false);
 
+
+    // function handleDrawer() {
+    //     setDrawerOpen(!drawerOpen);
+    // }
     function pickReply(){
         const i = Math.floor(Math.random() * mess.length);
         return mess[i];
@@ -29,12 +35,28 @@ export default function ChatPage(){
     }
     return (
         <Paper id="chat" sx={{p:2,minHeight:400, alignItems: "stretch"}}>
+                <IconButton>
+                    <MenuRoundedIcon/>
+                </IconButton>
                 <Typography variant="h6">BlablaChat</Typography>
                 <Typography variant="h4">Rozmowa z {data.selectContact}</Typography>
             <List id="list"> {
                 messages.map((m,index) => (
-                    <ListItem key={index}>
-                        <ListItemText primary={m.from==="ja" ? data.userName : data.selectContact} secondary={m.text}/>
+                    // <ListItem key={index}>
+                    //     <ListItemText primary={m.from==="ja" ? data.userName : data.selectContact} secondary={m.text}/>
+                    // </ListItem>
+                    <ListItem
+                        key={index}
+                        className={m.from === "ja" ? "myMessage" : "theirMessage"}
+                    >
+                        <Box className="cloud">
+                            <Typography className="author">
+                                {m.from === "ja" ? data.userName : data.selectContact}
+                            </Typography>
+                            <Typography className="text">
+                                {m.text}
+                            </Typography>
+                        </Box>
                     </ListItem>
                 ))
             }

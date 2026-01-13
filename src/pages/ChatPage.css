@@ -16,8 +16,28 @@ body.dark #chat.MuiPaper-root {
   overflow-y: auto;
 }
 #chat.MuiPaper-root #list {
-  flex: 0;
+  display: flex;
   overflow: auto;
+  flex-direction: column;
+}
+#chat.MuiPaper-root #list .cloud {
+  animation: fadeIn 0.2s ease-in;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#chat.MuiPaper-root #list .myMessage {
+  justify-content: flex-end;
+}
+#chat.MuiPaper-root #list .theirMessage {
+  justify-content: flex-start;
 }
 #chat.MuiPaper-root #textfield {
   display: flex;

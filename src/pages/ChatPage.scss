@@ -15,8 +15,17 @@ body.dark #chat.MuiPaper-root {
   font-family: "Atma", sans-serif;
   overflow-y: auto;
   #list{
-    flex: 0;
+    display: flex;
     overflow: auto;
+    flex-direction: column;
+    }
+    .myMessage{
+      justify-content: flex-end;
+    }
+    .theirMessage{
+      justify-content: flex-start;
+    }
+
   }
   #textfield {
     display: flex;

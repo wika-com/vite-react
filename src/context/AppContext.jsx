@@ -22,6 +22,7 @@ export function AppProvider({children}) {
         localStorage.getItem("availability") || "Nieaktywna/y"
     );
 
+
     useEffect(() => {
         localStorage.setItem(LS_USER_KEY,userName)
     }, []);
@@ -54,11 +55,20 @@ export function AppProvider({children}) {
     function login(name) {
         const nameClean = (name || "").trim();
         if (!nameClean) {
-            toast.error("Niepoprawny login..")
+            toast.error("Niepoprawny login..");
             return false;
         }
+        if (nameClean.length<=3) {
+            toast.error("Za krótki login");
+            return false;
+        }
+        // if (nameClean.includes(/[,!?@%*]/)) {
+        // if (/[,!?@%*]/.test(nameClean)) {
+        //     toast.error("Login zawiera niedozwolone znaki: , ! @ % ?");
+        //     return false;
+        // }
         setUserName(nameClean);
-        toast.success('Zalogowany!')
+        toast.success('Zalogowany!');
         return true;
     }
 
@@ -79,6 +89,9 @@ export function AppProvider({children}) {
 
     function logout() {
         setUserName("");
+        setChatMap({});
+        localStorage.removeItem("ChatMessages");
+
     }
 
     const value={

@@ -1,16 +1,4 @@
-import {
-    Box,
-    Toolbar,
-    ListItem,
-    ListItemText,
-    ListItemButton,
-    List,
-    Drawer,
-    Typography,
-    Button,
-    Stack,
-    TextField, Fab
-} from "@mui/material";
+import { Box, Toolbar, ListItem, ListItemText, ListItemButton, List, Drawer, Typography, Button, Stack, TextField, Fab} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -18,7 +6,7 @@ import {useContext, useState} from "react";
 import {AppContext} from "../context/AppContext.jsx";
 import "./SideBar.css";
 
-export default function SideBar() {
+export default function SideBar({open,onClose}) {
     const data=useContext(AppContext);
     const names=["Ala","Ola","ELA","Kasia","Basia"];
 
@@ -34,9 +22,13 @@ export default function SideBar() {
 
         setNewContact("");
         data.setSelectContact(name);
+        onClose();
     }
 
     function removeContact(name){
+        const confirmed = window.confirm(`Czy na pewno chcesz usunąć kontakt ${name}?`);
+        if (!confirmed) return;
+
         const next = contacts.filter(x => x !== name);
         setContacts(next);
 
@@ -44,7 +36,7 @@ export default function SideBar() {
     }
 
     return(
-        <Drawer className="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+        <Drawer className="sidebar" variant="temporary" open={open} onClose={onClose} sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
             <Toolbar/>
             <Box className="sideblock">
                 <Stack>
@@ -75,8 +67,8 @@ export default function SideBar() {
                     {
                         contacts.map( (name) => (
                             <ListItem id="one" key={name}>
-                                <ListItemButton onClick={ () => data.setSelectContact(name)} selected={data.selectContact === name}>
-                                    <ListItemText className="talk" primary={name} secondary="Treść rozmowy.."/>
+                                <ListItemButton onClick={ () => { data.setSelectContact(name); onClose();}} selected={data.selectContact === name}>
+                                    <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
                                 </ListItemButton>
                                 <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
                                     <RemoveIcon id="minus" className="icon" fontSize="medium" />
