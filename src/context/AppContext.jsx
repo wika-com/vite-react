@@ -5,13 +5,18 @@ import { toast } from 'react-toastify';
 export const AppContext = createContext(null);
 
 export function AppProvider({children}) {
-    const LS_USER_KEY= "ChatUsername"
+    const LS_USER_KEY= "ChatUsername";
+    const LS_CHAT_KEY="ChatMessages";
 
     const [showTime,setShowTime] = useState(true);
     const [userName,setUserName] = useState(localStorage.getItem(LS_USER_KEY) || "");
+    const [chatMap, setChatMap] = useState(() => {
+        const saved = localStorage.getItem(LS_CHAT_KEY);
+        return saved ? JSON.parse(saved) : {};
+    });
     const [selectContact,setSelectContact] = useState("Ala");
     const [darkTheme,setDarkTheme] = useState(false);
-    const [chatMap,setChatMap] = useState({});
+    //const [chatMap,setChatMap] = useState({});
     // const [control,setControl] = useState(localStorage.setItem("availability") || "Nieaktywna/y");
     const [control, setControl] = useState(
         localStorage.getItem("availability") || "Nieaktywna/y"
@@ -24,6 +29,10 @@ export function AppProvider({children}) {
     useEffect(() => {
         localStorage.setItem(LS_USER_KEY,userName)
     }, [userName]);
+
+    useEffect(() => {
+        localStorage.setItem(LS_CHAT_KEY, JSON.stringify(chatMap));
+    }, [chatMap]);
 
     useEffect(() => {
         localStorage.setItem("availability",control)

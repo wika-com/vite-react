@@ -25,7 +25,7 @@ export default function ChatPage(){
         setText("");
 
         setTimeout(() => {
-            data.addMessage(contact,"them",pickReply()); }, 2500);
+            data.addMessage(contact,"them",pickReply()); }, 2000);
     }
     return (
         <Paper id="chat" sx={{p:2,minHeight:400, alignItems: "stretch"}}>
