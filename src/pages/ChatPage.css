@@ -20,23 +20,10 @@ body.dark #chat.MuiPaper-root {
   overflow: auto;
   flex-direction: column;
 }
-#chat.MuiPaper-root #list .cloud {
-  animation: fadeIn 0.2s ease-in;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-#chat.MuiPaper-root #list .myMessage {
+#chat.MuiPaper-root .myMessage {
   justify-content: flex-end;
 }
-#chat.MuiPaper-root #list .theirMessage {
+#chat.MuiPaper-root .theirMessage {
   justify-content: flex-start;
 }
 #chat.MuiPaper-root #textfield {
