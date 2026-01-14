@@ -1,10 +1,16 @@
 import {Typography, Toolbar, AppBar, Box, Button} from '@mui/material';
 import {Link, useNavigate} from "react-router-dom";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import {useContext} from "react";
 import {AppContext} from "../context/AppContext.jsx";
 import "./TopBar.css";
+import IconButton from "@mui/material/IconButton";
 
-export default function TopBar() {
+function MenuIcon() {
+    return null;
+}
+
+export default function TopBar({toggleDrawer}) {
     const data= useContext(AppContext);
     const nav = useNavigate();
 
@@ -21,6 +27,17 @@ export default function TopBar() {
                     {/*ml=margin-left*/}
                     <Button color="inherit" component={Link} to="/chat">Chat</Button>
                     <Button color="inherit" component={Link} to ="/settings">Settings</Button>
+
+
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        onClick={toggleDrawer}
+                        sx={{ display: { md: "none" } }}> //żeby przy większej szer. się nie pojawiał>
+                        <MenuRoundedIcon/>
+                    </IconButton>
+
+
                     {/*<Button color="inherit" component={Link} to ="/login">Login</Button>*/}
                 </Box>
                 <Box id="bar" className="atma-semibold">

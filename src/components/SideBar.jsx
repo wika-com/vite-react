@@ -1,5 +1,4 @@
 import { Box, Toolbar, ListItem, ListItemText, ListItemButton, List, Drawer, Typography, Button, Stack, TextField, Paper} from "@mui/material";
-import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import {useContext, useState, useEffect} from "react";
@@ -23,7 +22,7 @@ function useFetch(url) {
      return {dataAPI, error, loading};
 }
 
-export default function SideBar() {
+export default function SideBar({open,onClose}) {
     const data=useContext(AppContext);
     //const names=[dataAPI.firstName];
     const {dataAPI, error, loading} = useFetch("https://dummyjson.com/users/?limit=4&skip=5");
@@ -67,56 +66,108 @@ export default function SideBar() {
     if (loading) return <p>ładowanie</p>;
     if (error) return <p>Błąd:{error.message}</p>
 
-    // return (
-    //     <div>
-    //         <h1>{dataAPI.firstName}</h1>
-    //         <h2>aa</h2>
-    //     </div>
-    // );
     return(
-        <Drawer className="sidebar" id="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
-            <Toolbar/>
-            <Box className="sideblock">
-                <Stack className="stack" id="stack">
-                    <Typography className="contacts">Kontakty</Typography>
-                </Stack>
-                <Box className="box">
-                    {/*<input*/}
-                    {/*    className="dodaj"*/}
-                    {/*    value={newContact}*/}
-                    {/*    onChange={(e)=>setNewContact(e.target.value)}*/}
-                    {/*    placeholder="Dodaj kontakt..."*/}
-                    {/*/>*/}
-                    <TextField
-                        className="dodaj"
-                        label="Dodawanie"
-                        multiline
-                        maxRows={4}
-                        variant="standard"
-                        value={newContact}
-                        onChange={(e)=>setNewContact(e.target.value)}
-                        placeholder="Nowy kontakt"
-                    />
-                    <Button className="button" aria-label="plus" size="larger" onClick={addContact}>
-                        <AddIcon className="icon" fontSize="medium" />
-                    </Button>
+        <>
+            <Drawer
+                variant="temporary"
+                open={open}
+                onClose={onClose}
+                sx={{
+                    display: { xs: "block", md: "none" },
+                    "& .MuiDrawer-paper": { width: 300 },
+                }}
+            >
+                <Toolbar/>
+                <Box className="sideblock">
+                    <Stack className="stack" id="stack">
+                        <Typography className="contacts">Kontakty</Typography>
+                    </Stack>
+                    <Box className="box">
+                        {/*<input*/}
+                        {/*    className="dodaj"*/}
+                        {/*    value={newContact}*/}
+                        {/*    onChange={(e)=>setNewContact(e.target.value)}*/}
+                        {/*    placeholder="Dodaj kontakt..."*/}
+                        {/*/>*/}
+                        <TextField
+                            className="dodaj"
+                            label="Dodawanie"
+                            multiline
+                            maxRows={4}
+                            variant="standard"
+                            value={newContact}
+                            onChange={(e)=>setNewContact(e.target.value)}
+                            placeholder="Nowy kontakt"
+                        />
+                        <Button className="button" aria-label="plus" size="larger" onClick={addContact}>
+                            <AddIcon className="icon" fontSize="medium" />
+                        </Button>
+                    </Box>
+                    <List>
+                        {
+                            data.contacts.map( (name) => (
+                                <ListItem id="one" key={name}>
+                                    <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
+                                        <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
+                                    </ListItemButton>
+                                    <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
+                                        <RemoveIcon id="minus" className="icon" fontSize="medium" />
+                                    </Button>
+                                    {/*co robi e.stopPropagation();*/}
+                                </ListItem>
+                            ))
+                        }
+                    </List>
                 </Box>
-                <List>
-                    {
-                        data.contacts.map( (name) => (
-                            <ListItem id="one" key={name}>
-                                <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
-                                    <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
-                                </ListItemButton>
-                                <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
-                                    <RemoveIcon id="minus" className="icon" fontSize="medium" />
-                                </Button>
-                                {/*co robi e.stopPropagation();*/}
-                            </ListItem>
-                        ))
-                    }
-                </List>
-            </Box>
-        </Drawer>
+            </Drawer>
+
+            <Drawer className="sidebar" id="sidebar" variant="permanent" sx={{display: { xs: "none", md: "block" },
+                "& .MuiDrawer-paper": {
+                    width: 300,
+                    boxSizing: "border-box",},}}>
+                <Toolbar/>
+                <Box className="sideblock">
+                    <Stack className="stack" id="stack">
+                        <Typography className="contacts">Kontakty</Typography>
+                    </Stack>
+                    <Box className="box">
+                        {/*<input*/}
+                        {/*    className="dodaj"*/}
+                        {/*    value={newContact}*/}
+                        {/*    onChange={(e)=>setNewContact(e.target.value)}*/}
+                        {/*    placeholder="Dodaj kontakt..."*/}
+                        {/*/>*/}
+                        <TextField
+                            className="dodaj"
+                            label="Dodawanie"
+                            multiline
+                            maxRows={4}
+                            variant="standard"
+                            value={newContact}
+                            onChange={(e)=>setNewContact(e.target.value)}
+                            placeholder="Nowy kontakt"
+                        />
+                        <Button className="button" aria-label="plus" size="larger" onClick={addContact}>
+                            <AddIcon className="icon" fontSize="medium" />
+                        </Button>
+                    </Box>
+                    <List>
+                        {
+                            data.contacts.map( (name) => (
+                                <ListItem id="one" key={name}>
+                                    <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
+                                        <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
+                                    </ListItemButton>
+                                    <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
+                                        <RemoveIcon id="minus" className="icon" fontSize="medium" />
+                                    </Button>
+                                    {/*co robi e.stopPropagation();*/}
+                                </ListItem>
+                            ))
+                        }
+                    </List>
+                </Box>
+            </Drawer>
+        </>
     )
 }

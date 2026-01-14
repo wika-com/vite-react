@@ -55,7 +55,7 @@ export default function ChatPage(){
     return (
         <Box className="mainchat" sx={{display:"flex", minHeight: "auto"}}>
             <SideBar/>
-            <Paper id="chat">
+            <Paper id="chat" component="main" sx={{ml:{md: `300px`},}}>
                     <Typography variant="h6">BlablaChat</Typography>
                     <Typography variant="h4">Rozmowa z {data.selectContact}</Typography>
                 <List id="list"> {
