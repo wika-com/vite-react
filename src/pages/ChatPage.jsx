@@ -72,6 +72,11 @@ export default function ChatPage(){
                                 <Typography className="text">
                                     {m.text}
                                 </Typography>
+                                {data.showTime && (
+                                    <Typography className="time">
+                                        {m.time}
+                                    </Typography>
+                                )}
                             </Box>
                         </ListItem>
                     ))

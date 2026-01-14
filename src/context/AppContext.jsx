@@ -49,7 +49,7 @@ export function AppProvider({children}) {
         setChatMap(prev => {
             const key = contact;
             const list = prev[key] || [];
-            return { ...prev, [key]: [...list, {from, text}] };
+            return { ...prev, [key]: [...list, {from, text, time: new Date().toLocaleTimeString()}] };
         });
     }
     function addContactToList(name) {

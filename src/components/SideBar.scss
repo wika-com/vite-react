@@ -16,7 +16,7 @@ body.dark .sidebar .MuiDrawer-paper{
     padding-bottom: 15vh;
     color: white;
     font-family: Calibri, emoji;
-    .stack{
+    .box{
       display: flex;
       margin-left: 10px;
       margin-top: 8px;
@@ -53,5 +53,54 @@ body.dark .sidebar .MuiDrawer-paper{
     height: 8vh;
     border-radius: 50px;
   }
+  }
+}
+@media (max-width: 900px){
+  #sidebar {
+    width: 70%;
+    .MuiDrawer-paper{
+      width: 30%;
+    }
+    #stack{
+      width: 40%;
+      margin-top: 15%;
+      margin-left: 20%;
+      .contacts{
+        font-size: 3vh;
+      }
+    }
+    #one{
+      width: 80%;
+      #talk{
+        font-size: large;
+      }
+      #usun{
+        height: 30px;
+      }
+    }
+    .dodaj{
+      width: 40%;
+    }
+  }
+}
+@media (max-width: 630px){
+  #sidebar .MuiDrawer-root{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+  .MuiDrawer-paper{
+    display: flex;
+    flex-direction: column;
+    #one{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .sideblock{
+    .box{
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

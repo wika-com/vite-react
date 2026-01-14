@@ -74,13 +74,13 @@ export default function SideBar() {
     //     </div>
     // );
     return(
-        <Drawer className="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+        <Drawer className="sidebar" id="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
             <Toolbar/>
             <Box className="sideblock">
-                <Stack>
+                <Stack className="stack" id="stack">
                     <Typography className="contacts">Kontakty</Typography>
                 </Stack>
-                <Box className="stack">
+                <Box className="box">
                     {/*<input*/}
                     {/*    className="dodaj"*/}
                     {/*    value={newContact}*/}

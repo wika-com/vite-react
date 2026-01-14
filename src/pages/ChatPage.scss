@@ -4,13 +4,14 @@ body.dark #chat.MuiPaper-root {
 }
 .mainchat{
   display: flex;
-  min-height: 60vh;
+  flex-direction: row;
 }
 #chat.MuiPaper-root {
   background-color: #F5EBE0;
   min-height: 80vh;
   max-height: 70vh;
-  width: 150vh;
+  width: 100%;
+  max-width: 100%;
   margin-bottom: 0;
   padding: 2vh;
   color: #4A5759;
@@ -30,6 +31,10 @@ body.dark #chat.MuiPaper-root {
     }
     .theirMessage{
       justify-content: flex-start;
+    }
+    .time{
+      font-size: 0.7rem;
+      text-align: right;
     }
 
   #textfield {
@@ -54,8 +59,15 @@ body.dark #chat.MuiPaper-root {
   }
 }
 @media (max-width: 900px) {
+  .mainchat{
+    flex-direction: column;
+  }
   #chat.MuiPaper-root {
     height: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
   .contacts {
     font-size: 2.5vh;
