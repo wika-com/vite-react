@@ -21,7 +21,7 @@ export default function TopBar() {
                     {/*ml=margin-left*/}
                     <Button color="inherit" component={Link} to="/chat">Chat</Button>
                     <Button color="inherit" component={Link} to ="/settings">Settings</Button>
-                    <Button color="inherit" component={Link} to ="/login">Login</Button>
+                    {/*<Button color="inherit" component={Link} to ="/login">Login</Button>*/}
                 </Box>
                 <Box id="bar" className="atma-semibold">
                     <Typography id="user" >Użytkownik: {data.userName}</Typography>

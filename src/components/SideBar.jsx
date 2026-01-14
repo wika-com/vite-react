@@ -1,42 +1,80 @@
-import { Box, Toolbar, ListItem, ListItemText, ListItemButton, List, Drawer, Typography, Button, Stack, TextField, Fab} from "@mui/material";
+import { Box, Toolbar, ListItem, ListItemText, ListItemButton, List, Drawer, Typography, Button, Stack, TextField, Paper} from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import {useContext, useState} from "react";
+import {useContext, useState, useEffect} from "react";
 import {AppContext} from "../context/AppContext.jsx";
 import "./SideBar.css";
 
-export default function SideBar({open,onClose}) {
+function useFetch(url) {
+
+    const [dataAPI,setdataAPI] = useState(null);
+    const [error,setError] = useState(null);
+    const [loading,setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(json => setdataAPI(json))
+            .catch(err => setError(err))
+            .finally(()=> setLoading(false));
+
+    }, [url]);
+     return {dataAPI, error, loading};
+}
+
+export default function SideBar() {
     const data=useContext(AppContext);
-    const names=["Ala","Ola","ELA","Kasia","Basia"];
+    //const names=[dataAPI.firstName];
+    const {dataAPI, error, loading} = useFetch("https://dummyjson.com/users/?limit=4&skip=5");
 
     //kontakty z [names] dodawane na start
-    const [contacts,setContacts] = useState(names);
+    // const [contacts,setContacts] = useState(names);
+    // const [newContact,setNewContact] = useState("");
+   // const [contacts,setContacts] = useState([]);
     const [newContact,setNewContact] = useState("");
+
+    useEffect(() => {
+        if (dataAPI && dataAPI.users && data.contacts.length ===0) {
+            const apiNames = dataAPI.users.map(user => user.firstName);
+            data.setContacts(apiNames);
+            if (apiNames.length > 0 && !data.selectContact) {
+                data.setSelectContact(apiNames[0]);
+            }
+        }
+    }, [dataAPI,data])
 
     function addContact(){
         const name = newContact.trim();
         if(!name) return;
 
-        if(!contacts.includes(name)) setContacts([...contacts, name]);
-
+        data.addContactToList(name);
         setNewContact("");
         data.setSelectContact(name);
-        onClose();
     }
 
     function removeContact(name){
         const confirmed = window.confirm(`Czy na pewno chcesz usunąć kontakt ${name}?`);
         if (!confirmed) return;
 
-        const next = contacts.filter(x => x !== name);
-        setContacts(next);
+        const next = data.contacts.filter(x => x !== name);
+        data.setContacts(next);
 
         if(data.selectContact === name) data.setSelectContact(next[0] || "");
     }
 
+
+    if (loading) return <p>ładowanie</p>;
+    if (error) return <p>Błąd:{error.message}</p>
+
+    // return (
+    //     <div>
+    //         <h1>{dataAPI.firstName}</h1>
+    //         <h2>aa</h2>
+    //     </div>
+    // );
     return(
-        <Drawer className="sidebar" variant="temporary" open={open} onClose={onClose} sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
+        <Drawer className="sidebar" variant="permanent" sx={{width:300, [`& .MuiDrawer-paper`]: { width: 300, boxSizing: "border-box" },}}>
             <Toolbar/>
             <Box className="sideblock">
                 <Stack>
@@ -65,9 +103,9 @@ export default function SideBar({open,onClose}) {
                 </Box>
                 <List>
                     {
-                        contacts.map( (name) => (
+                        data.contacts.map( (name) => (
                             <ListItem id="one" key={name}>
-                                <ListItemButton onClick={ () => { data.setSelectContact(name); onClose();}} selected={data.selectContact === name}>
+                                <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
                                     <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
                                 </ListItemButton>
                                 <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>

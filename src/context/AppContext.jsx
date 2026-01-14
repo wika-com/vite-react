@@ -9,6 +9,8 @@ export function AppProvider({children}) {
     const LS_CHAT_KEY="ChatMessages";
 
     const [showTime,setShowTime] = useState(true);
+    const [contacts,setContacts] = useState([]);
+    const [anchorEl, setAnchorEl] = useState(null);
     const [userName,setUserName] = useState(localStorage.getItem(LS_USER_KEY) || "");
     const [chatMap, setChatMap] = useState(() => {
         const saved = localStorage.getItem(LS_CHAT_KEY);
@@ -50,7 +52,11 @@ export function AppProvider({children}) {
             return { ...prev, [key]: [...list, {from, text}] };
         });
     }
-
+    function addContactToList(name) {
+        if(!contacts.includes(name)) {
+            setContacts([...contacts, name]);
+        }
+    }
 
     function login(name) {
         const nameClean = (name || "").trim();
@@ -104,7 +110,10 @@ export function AppProvider({children}) {
         login,logout,
         darkside,
         isAvailable,
-        control,setControl
+        control,setControl,
+        anchorEl,setAnchorEl,
+        addContactToList,
+        contacts,setContacts
     };
     return  <AppContext.Provider value={value} > {children} </AppContext.Provider>;
 }

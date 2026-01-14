@@ -35,7 +35,7 @@ function ThemedApp() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter> // Wykorzystanie biblioteki React Router
             <AppProvider>
                 <ThemedApp/>
             </AppProvider>

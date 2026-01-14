@@ -15,11 +15,11 @@ body.dark .topbar.MuiAppBar-root{
     background-color: #77A68A;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     #name {
       font-family: "Atma", sans-serif;
       font-size: 5px;
       font-weight: bold;
-
     }
     #bar {
       display: flex;
@@ -42,5 +42,13 @@ body.dark .topbar.MuiAppBar-root{
       display: inline-block;
       margin-left: 5px;
     }
+  }
+}
+@media (max-width: 600px) {
+  #status {
+    font-size: smaller;
+  }
+  #name {
+    font-size: 1.2rem;
   }
 }

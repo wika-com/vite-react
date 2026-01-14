@@ -4,7 +4,7 @@ import {AppContext} from "../context/AppContext.jsx";
 import {useNavigate} from "react-router-dom";
 import "./LoginPage.css";
 
-export default function ChatPage(){
+export default function LoginPage(){
     const data = useContext(AppContext);
     const nav= useNavigate();
     const [name,setName] = useState("")

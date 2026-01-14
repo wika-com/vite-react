@@ -1,5 +1,7 @@
 .main {
     display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 .card1 {
     width: 20%;
@@ -17,4 +19,9 @@ body {
 body.dark {
     background: #1a1423;
     color: #eaeaea;
+}
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column; /* Sidebar wskakuje nad czat na mobile */
+    }
 }

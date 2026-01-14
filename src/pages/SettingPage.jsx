@@ -3,24 +3,24 @@ import {useContext} from "react";
 import {AppContext} from "../context/AppContext.jsx";
 import "./SettingPage.css";
 
-export default function ChatPage(){
+export default function SettingPage(){
     const data=useContext(AppContext)
 
     const handleChange = (event) => {
         data.isAvailable(event.target.value);
     }
     return (
-        <Paper id="setcard" sx={{p:2,minHeight:400}}>
-            <Typography id="text1" variant="h2">Settings</Typography>
-            <Stack>
+        <Paper id="setcard">
+            <Typography className="text" id="text1" variant="h2">Settings</Typography>
+            <Stack sx={{ width: '100%', maxWidth: '600px' }}>
                 <FormControlLabel control={<Switch checked={data.showTime} onChange={() => data.setShowTime(!data.showTime)} /> } label="Pokaż/Ukryj godzinę wiadomości" />
                 <FormControlLabel control={<Switch checked={data.darkTheme} onChange={data.darkside}/>} label="Motyw ciemny/jasny" />
-                <Typography id="text" variant="h4">Dostępność</Typography>
+                <Typography className="text" id="text2" variant="h4">Dostępność</Typography>
                 <FormControl>
                     <RadioGroup
                         row
                         aria-labelledby="demo-row-radio-buttons-group-label"
-                        name="availability"
+                        className="radio"
                         value={data.control}
                         onChange={handleChange}
                     >

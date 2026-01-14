@@ -13,6 +13,7 @@ body.dark .topbar.MuiAppBar-root {
   background-color: #77A68A;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .topbar .MuiAppBar-root .toolbar #name {
   font-family: "Atma", sans-serif;
@@ -39,6 +40,15 @@ body.dark .topbar.MuiAppBar-root {
 .topbar .MuiAppBar-root .toolbar .button {
   display: inline-block;
   margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  #status {
+    font-size: smaller;
+  }
+  #name {
+    font-size: 1.2rem;
+  }
 }
 
 /*# sourceMappingURL=TopBar.css.map */
