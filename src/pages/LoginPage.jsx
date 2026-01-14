@@ -2,7 +2,7 @@ import {Typography, Paper, TextField, Button, Stack, Box, Drawer} from '@mui/mat
 import {useContext, useState} from "react";
 import {AppContext} from "../context/AppContext.jsx";
 import {useNavigate} from "react-router-dom";
-import "./LoginPage.css";
+import "../styles/LoginPage.css";
 
 export default function LoginPage(){
     const data = useContext(AppContext);

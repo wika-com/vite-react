@@ -20,9 +20,7 @@ export function AppProvider({children}) {
     const [darkTheme,setDarkTheme] = useState(false);
     //const [chatMap,setChatMap] = useState({});
     // const [control,setControl] = useState(localStorage.setItem("availability") || "Nieaktywna/y");
-    const [control, setControl] = useState(
-        localStorage.getItem("availability") || "Nieaktywna/y"
-    );
+    const [control, setControl] = useState(localStorage.getItem("availability") || "Nieaktywna/y");
 
 
     useEffect(() => {

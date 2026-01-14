@@ -1,7 +1,7 @@
 import {Typography, Paper, FormControlLabel, Switch, Stack,Radio, RadioGroup, FormControl,FormLabel} from '@mui/material';
 import {useContext} from "react";
 import {AppContext} from "../context/AppContext.jsx";
-import "./SettingPage.css";
+import "../styles/SettingPage.css";
 
 export default function SettingPage(){
     const data=useContext(AppContext)

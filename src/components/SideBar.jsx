@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import {useContext, useState, useEffect} from "react";
 import {AppContext} from "../context/AppContext.jsx";
-import "./SideBar.css";
+import "../styles/SideBar.css";
 
 function useFetch(url) {
 
@@ -24,7 +24,7 @@ function useFetch(url) {
 
 export default function SideBar({open,onClose}) {
     const data=useContext(AppContext);
-    //const names=[dataAPI.firstName];
+    const status = ["aktywna/y","zaraz wracam","nieaktywna/y"];
     const {dataAPI, error, loading} = useFetch("https://dummyjson.com/users/?limit=4&skip=5");
 
     //kontakty z [names] dodawane na start
@@ -42,6 +42,11 @@ export default function SideBar({open,onClose}) {
             }
         }
     }, [dataAPI,data])
+
+    function randomStatus(){
+        const i = Math.floor(Math.random() * status.length);
+        return status[i];
+    }
 
     function addContact(){
         const name = newContact.trim();
@@ -63,20 +68,13 @@ export default function SideBar({open,onClose}) {
     }
 
 
-    if (loading) return <p>ładowanie</p>;
+    //if (loading) return <p>ładowanie</p>;
     if (error) return <p>Błąd:{error.message}</p>
 
     return(
         <>
-            <Drawer
-                variant="temporary"
-                open={open}
-                onClose={onClose}
-                sx={{
-                    display: { xs: "block", md: "none" },
-                    "& .MuiDrawer-paper": { width: 300 },
-                }}
-            >
+            <Drawer className="sidebar" variant="temporary" open={open} onClose={onClose} sx={{display: { xs: "block", md: "none" },
+                    "& .MuiDrawer-paper": { width: 300 },}}>
                 <Toolbar/>
                 <Box className="sideblock">
                     <Stack className="stack" id="stack">
@@ -89,16 +87,10 @@ export default function SideBar({open,onClose}) {
                         {/*    onChange={(e)=>setNewContact(e.target.value)}*/}
                         {/*    placeholder="Dodaj kontakt..."*/}
                         {/*/>*/}
-                        <TextField
-                            className="dodaj"
-                            label="Dodawanie"
-                            multiline
-                            maxRows={4}
-                            variant="standard"
-                            value={newContact}
-                            onChange={(e)=>setNewContact(e.target.value)}
-                            placeholder="Nowy kontakt"
-                        />
+                        <TextField className="dodaj" label="Dodawanie"
+                            multiline maxRows={4} variant="standard"
+                            value={newContact} onChange={(e)=>setNewContact(e.target.value)}
+                            placeholder="Nowy kontakt"/>
                         <Button className="button" aria-label="plus" size="larger" onClick={addContact}>
                             <AddIcon className="icon" fontSize="medium" />
                         </Button>
@@ -108,7 +100,7 @@ export default function SideBar({open,onClose}) {
                             data.contacts.map( (name) => (
                                 <ListItem id="one" key={name}>
                                     <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
-                                        <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
+                                        <ListItemText className="talk" primary={name} secondary={randomStatus()}/>
                                     </ListItemButton>
                                     <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
                                         <RemoveIcon id="minus" className="icon" fontSize="medium" />
@@ -156,7 +148,7 @@ export default function SideBar({open,onClose}) {
                             data.contacts.map( (name) => (
                                 <ListItem id="one" key={name}>
                                     <ListItemButton onClick={ () => { data.setSelectContact(name);}} selected={data.selectContact === name}>
-                                        <ListItemText className="talk" primary={name} secondary="Wiadomości"/>
+                                        <ListItemText className="talk" primary={name} secondary={randomStatus()}/>
                                     </ListItemButton>
                                     <Button id="usun" size="small" onClick={(e)=>{ e.stopPropagation(); removeContact(name); }}>
                                         <RemoveIcon id="minus" className="icon" fontSize="medium" />

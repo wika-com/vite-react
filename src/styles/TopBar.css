@@ -20,7 +20,7 @@ body.dark .topbar.MuiAppBar-root {
   font-size: 5px;
   font-weight: bold;
 }
-.topbar .MuiAppBar-root .toolbar #bar {
+.topbar .MuiAppBar-root .toolbar #bar1 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -29,12 +29,12 @@ body.dark .topbar.MuiAppBar-root {
   color: #77A68A;
   margin-right: 10px;
 }
-.topbar .MuiAppBar-root .toolbar #bar #user {
+.topbar .MuiAppBar-root .toolbar #bar1 #user {
   display: inline-block;
   font-size: 2px;
   margin: 20px;
 }
-.topbar .MuiAppBar-root .toolbar #bar #status {
+.topbar .MuiAppBar-root .toolbar #bar1 #status {
   margin: 0;
 }
 .topbar .MuiAppBar-root .toolbar .button {

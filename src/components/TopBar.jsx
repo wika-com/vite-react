@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import {useContext} from "react";
 import {AppContext} from "../context/AppContext.jsx";
-import "./TopBar.css";
+import "../styles/TopBar.css";
 import IconButton from "@mui/material/IconButton";
 
 function MenuIcon() {
@@ -33,14 +33,13 @@ export default function TopBar({toggleDrawer}) {
                         edge="start"
                         color="inherit"
                         onClick={toggleDrawer}
-                        sx={{ display: { md: "none" } }}> //żeby przy większej szer. się nie pojawiał>
+                        sx={{ display: { md: "none" } }}>
+                        {/*żeby przy większej szer. się nie pojawiał*/}
                         <MenuRoundedIcon/>
                     </IconButton>
 
-
-                    {/*<Button color="inherit" component={Link} to ="/login">Login</Button>*/}
                 </Box>
-                <Box id="bar" className="atma-semibold">
+                <Box id="bar1" >
                     <Typography id="user" >Użytkownik: {data.userName}</Typography>
                     <Typography id="status" variant="subtitle1">Status: {data.control}</Typography>
                 </Box>

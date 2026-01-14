@@ -4,21 +4,16 @@ import {useContext, useState} from "react";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import EmojiEmotionsRoundedIcon from '@mui/icons-material/EmojiEmotionsRounded';
-import "./ChatPage.css";
-import { mess } from "./messages";
+import "../styles/ChatPage.css";
+import { mess } from "../context/messages.jsx";
 import SideBar from "../components/SideBar.jsx";
 
 export default function ChatPage(){
     const data = useContext(AppContext);
     const [text,setText] = useState("");
     const messages = data.chatMap[data.selectContact] || [];
-    //const [drawerOpen, setDrawerOpen] = useState(false);
     const emoji = ["😀","😄","😁","😆","😅","😂","🙂","🙃","🫠","😉","😊","😇","🥰","😍","🤩","😘","😚","🥲","😋","😛","😜","🤪","😝","🤑","🤔","😐","😑","😏","😒","😬","😌","😔","😴","🤮","🤧","🥵","🥶","😵","🤠","🥳","😎","😮","😢","😭","😠"];
 
-
-    // function handleDrawer() {
-    //     setDrawerOpen(!drawerOpen);
-    // }
 
     function setEmoji(emoji){
         setText(prev => prev + emoji);
@@ -39,6 +34,8 @@ export default function ChatPage(){
         const i = Math.floor(Math.random() * mess.length);
         return mess[i];
     }
+
+
 
     function send(){
         const clean = (text || "").trim();
@@ -72,11 +69,9 @@ export default function ChatPage(){
                                 <Typography className="text">
                                     {m.text}
                                 </Typography>
-                                {data.showTime && (
-                                    <Typography className="time">
-                                        {m.time}
-                                    </Typography>
-                                )}
+                                <Typography className="time">
+                                    {m.time}
+                                </Typography>
                             </Box>
                         </ListItem>
                     ))

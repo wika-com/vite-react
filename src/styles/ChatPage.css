@@ -3,6 +3,10 @@ body.dark #chat.MuiPaper-root {
   color: #fff;
 }
 
+body.dark #button {
+  background-color: #3d314a;
+}
+
 .mainchat {
   display: flex;
   flex-direction: row;
@@ -13,8 +17,6 @@ body.dark #chat.MuiPaper-root {
   min-height: 80vh;
   max-height: 70vh;
   flex-grow: 1;
-  width: 100%;
-  max-width: 100%;
   margin-bottom: 0;
   padding: 2vh;
   color: #4A5759;
@@ -52,8 +54,9 @@ body.dark #chat.MuiPaper-root {
 }
 #chat.MuiPaper-root #textfield #button {
   align-self: center;
-  margin-top: 2vh;
-  border-radius: 40px;
+  border-radius: 50px;
+  width: 5%;
+  margin: 1vh;
   background-color: white;
 }
 #chat.MuiPaper-root #textfield .icon {
